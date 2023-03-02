@@ -1,7 +1,10 @@
 pipeline {
-    agent any
-    
-    tools {nodejs "node10"}
+    agent {
+        docker {
+            image 'node:10'
+            args '-p 3000:3000'
+        }
+    }
     environment {
             CI = 'true'
         }
